@@ -84,9 +84,10 @@ def weather_forecast(lat, lon):
         date_str = entry["dt_txt"][:10]  # e.g. '2025-01-29'
         description = entry["weather"][0]["description"].title()
         temp = entry["main"]["temp_max"]  # max temp in °C
+
         daily_forecast.append({
             "date": date_str,
-            "description": description,
+            "weather": description,
             "temp": temp
         })
 
