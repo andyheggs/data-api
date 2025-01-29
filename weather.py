@@ -15,6 +15,12 @@ def search_city(query):
     If multiple options are returned, ask the user to pick one by index.
     Return one city (dictionary) or None if none found.
     """
+
+    # Short-circuit if user didn't type anything
+    if not query.strip():
+        print("No city name provided, please try again.")
+        return None
+
     # Build URL, limit=5 to allow multiple results
     url = f"{BASE_URI}/geo/1.0/direct?q={urllib.parse.quote(query)}&limit=5"
     response = requests.get(url).json()
